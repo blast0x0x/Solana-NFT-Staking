@@ -4,6 +4,7 @@ import {
     RS_STAKEINFO_SEED,
     RS_STAKE_SEED,
     RS_VAULT_SEED,
+    RS_NFT_SEED,
     RACE_PREFIX,
     RACE_STAKEINFO_SEED,
     RACE_STAKE_SEED,
@@ -32,6 +33,19 @@ export const getRewardVaultKey = async () => {
         PROGRAM_ID
     );
     return rewardVaultKey;
+};
+
+export const getNFTInfoKey = async (
+    nft_mint
+) => {
+    const [NftInfoKey] = await asyncGetPda(
+        [
+            Buffer.from(RS_NFT_SEED),
+            nft_mint.toBuffer()
+        ],
+        PROGRAM_ID
+    );
+    return NftInfoKey;
 };
 
 export const getStakedNFTKey = async (

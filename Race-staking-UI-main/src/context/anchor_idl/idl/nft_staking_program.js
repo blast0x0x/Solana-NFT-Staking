@@ -63,6 +63,52 @@ export const IDL = {
       ]
     },
     {
+      "name": "initializeNft",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftInfo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "classId",
+          "type": "u16"
+        }
+      ]
+    },
+    {
       "name": "stakeNft",
       "accounts": [
         {
@@ -72,6 +118,11 @@ export const IDL = {
         },
         {
           "name": "poolAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftInfo",
           "isMut": true,
           "isSigner": false
         },
@@ -510,6 +561,22 @@ export const IDL = {
           }
         ]
       }
+    },
+    {
+      "name": "NftInfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "classId",
+            "type": "u32"
+          },
+          {
+            "name": "nftAddr",
+            "type": "publicKey"
+          }
+        ]
+      }
     }
   ],
   "errors": [
@@ -535,26 +602,31 @@ export const IDL = {
     },
     {
       "code": 6004,
-      "name": "InvalidOwner",
+      "name": "InvalidNFTClass",
       "msg": "NFT Owner key mismatch"
     },
     {
       "code": 6005,
+      "name": "InvalidOwner",
+      "msg": "NFT rarity mismatch"
+    },
+    {
+      "code": 6006,
       "name": "InvalidWithdrawTime",
       "msg": "Staking Locked Now"
     },
     {
-      "code": 6006,
+      "code": 6007,
       "name": "IndexOverflow",
       "msg": "Withdraw NFT Index OverFlow"
     },
     {
-      "code": 6007,
+      "code": 6008,
       "name": "LackLamports",
       "msg": "Insufficient Lamports"
     }
   ],
   "metadata": {
-    "address": "Qz6kV3hatXXx5EJuYhmukkiEUt282VeEMz6YwwBaaMn"
+    "address": "13M2mV5VmUx9KtaapArUmiBbSDF1PZKdqW3fneoFBZqV"
   }
 }

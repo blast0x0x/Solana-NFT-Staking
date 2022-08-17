@@ -8,7 +8,7 @@ import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID } from "@solana/spl-token
 import { isValidSolanaAddress } from "@nfteyez/sol-rayz";
 
 import { IDL } from '../anchor_idl/idl/nft_staking_program';
-import RARITY from '../rarity.json';
+import RARITY from '../rarity_test.json';
 
 import {
   RACE_TOKEN_MINT,
@@ -20,6 +20,7 @@ import {
 import {
   getPoolKey,
   getRewardVaultKey,
+  getNFTInfoKey,
   getStakedNFTKey,
   getStakeInfoKey,
 } from '../keys';
@@ -71,6 +72,7 @@ export const stakeNft = async (selectedNftMint) => {
     const ix = await program.methods.stakeNft(nftClass).accounts({
       owner: provider.wallet.publicKey,
       poolAccount: await getPoolKey(),
+      nftInfo: await getNFTInfoKey(nftMintPk),
       nftMint: nftMintPk,
       userNftTokenAccount: await getNFTTokenAccount(nftMintPk, provider.wallet.publicKey),
       destNftTokenAccount: await getStakedNFTKey(nftMintPk),

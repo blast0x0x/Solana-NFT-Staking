@@ -17,6 +17,7 @@ export const RS_PREFIX = "race-nft-staking";
 export const RS_STAKEINFO_SEED = "race-nft-stake-info";
 export const RS_STAKE_SEED = "race-nft-staking";
 export const RS_VAULT_SEED = "race-reward-vault";
+export const RS_NFT_SEED = "race-nft-info";
 
 export const RACE_PREFIX = "race-staking";
 export const RACE_STAKEINFO_SEED = "race-stake-info";
@@ -57,7 +58,7 @@ export const NFT_CREATOR = new PublicKey(
 export const PROGRAM_ID = new PublicKey(
     IS_MAINNET ?
         "6RhXNaW1oQYQmjTc1ypb4bEFe1QasPAgEfFNhQ3HnSqo" :
-        "Qz6kV3hatXXx5EJuYhmukkiEUt282VeEMz6YwwBaaMn"
+        "13M2mV5VmUx9KtaapArUmiBbSDF1PZKdqW3fneoFBZqV"
 )
 
 export const INITIALIZER = new PublicKey(
